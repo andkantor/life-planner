@@ -1,0 +1,17 @@
+.goal-view {
+
+}
+
+.goal-view-left,
+.goal-view-right {
+    padding: 10px;
+}
+
+.navbar-item {
+    cursor: pointer;
+}
+
+/* lp-role-row */
+.role-form {
+    padding: 20px 0;
+}

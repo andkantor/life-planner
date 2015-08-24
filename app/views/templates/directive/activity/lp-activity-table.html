@@ -1,0 +1,50 @@
+<div>
+    <div class="panel">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th colspan="2">{{title}}</th>
+                <th>
+                    <div class="btn-group pull-right" role="group">
+                        <a class="btn btn-sm btn-default" role="button"
+                           ng-class="{active: showChecked}"
+                           ng-click="showChecked = !showChecked">
+                            <span class="glyphicon glyphicon-check"></span>
+                        </a>
+                        <a class="btn btn-sm btn-default" role="button"
+                           ng-class="{active: showUnchecked}"
+                           ng-click="showUnchecked = !showUnchecked">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                        </a>
+                        <lp-activity-create-button goal="goal" ng-if="enableAdd"></lp-activity-create-button>
+                    </div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="!activities.length" class="text-center">
+                <td colspan="3" translate>activity.list.noActivities</td>
+            </tr>
+            <tr ng-repeat="activity in activities | orderBy:'date' track by $index"
+                ng-if="condition(activity)"
+                ng-show="showActivity(activity)">
+                <td class="col-xs-8">{{activity.title}}</td>
+                <td class="col-xs-2">{{activity.date|date:'mediumDate'}}</td>
+                <td class="col-xs-2">
+                    <div class="btn-group pull-right" role="group">
+                        <a class="btn btn-sm btn-default"
+                           role="button"
+                           ng-class="{'btn-success': activity.status == 'done'}"
+                           ng-click="changeActivityStatus(activity)">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </a>
+                        <a class="btn btn-sm btn-default" role="button" ng-click="removeActivity(activity)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="dropdown">
+    <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        {{goal.priority}}
+    </a>
+    <ul class="dropdown-menu">
+        <li ng-repeat="priority in priorities track by $index">
+            <a role="button" ng-click="changePriority(priority)">{{priority}}</a>
+        </li>
+    </ul>
+</div>

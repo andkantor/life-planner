@@ -1,0 +1,20 @@
+<div>
+    <div>
+        <h1 translate>mission.title</h1>
+    </div>
+
+    <div>
+        <div class="pull-right">
+            <a class="btn btn-sm btn-success" ng-click="showModal()">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="roles">
+        <div ng-repeat="role in roles track by $index">
+            <lp-role-row role="role"></lp-role-row>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div>
+    <div class="panel">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th translate>goal.name</th>
+                <th translate>goal.priority</th>
+                <th translate>goal.status.status</th>
+                <th>
+                    <div class="btn-group" role="group">
+                        <lp-goal-create-button goals="goals"></lp-goal-create-button>
+                    </div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="!goals.length" class="text-center">
+                    <td colspan="5" translate>{{noGoalsText}}</td>
+                </tr>
+                <tr ng-repeat="goal in goals | orderBy:'priority' track by $index">
+                    <td class="col-xs-1">{{goal.id}}</td>
+                    <td class="col-xs-7" ng-click="viewGoal(goal)">{{goal.name}}</td>
+                    <td class="col-xs-1">
+                        <lp-goal-priority-dropdown goal="goal"></lp-goal-priority-dropdown>
+                    </td>
+                    <td class="col-xs-3">
+                        <lp-goal-status-dropdown goal="goal"></lp-goal-status-dropdown>
+                    </td>
+                    <td class="col-xs-1">
+                        <div class="btn-group pull-right" role="group">
+                            <a class="btn btn-sm btn-default" role="button" ng-click="removeGoal(goal)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

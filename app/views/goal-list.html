@@ -1,0 +1,12 @@
+<div>
+    <div>
+        <h2 translate>goal.list.title</h2>
+    </div>
+
+    <div>{{'goal.list.numberOfGoals'|translate}} {{goals.length}}</div>
+
+    <div class="clearfix"></div>
+    <lp-goal-table
+            goals="goals"
+            no-goals-text="{{'goal.list.noGoals'|translate}}"></lp-goal-table>
+</div>

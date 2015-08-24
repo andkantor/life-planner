@@ -1,0 +1,51 @@
+<div class="role-row" ng-show="!editable">
+    <div>
+        <div class="pull-left">
+            <h2>{{role.name}}</h2>
+        </div>
+
+        <div class="pull-right dropdown" style="padding-top: 20px">
+            <a class="btn btn-sm btn-default" role="button"
+               ng-click="showGoals = !showGoals"
+               ng-class="{active: showGoals}"
+               ><span class="glyphicon"
+                      ng-class="{'glyphicon-chevron-down': !showGoals, 'glyphicon-chevron-up': showGoals }"></span>
+            </a>
+            <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-option-vertical"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a role="button" ng-click="showForm()" translate>button.edit</a>
+                </li>
+                <li>
+                    <a role="button" ng-click="removeRole()" translate>button.delete</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div>{{role.statement}}</div>
+    <div ng-show="showGoals">
+        <table class="table table-hover">
+            <tr ng-repeat="goal in goals">
+                <td>{{goal.name}}</td>
+                <td>{{goal.priority}}</td>
+                <td>{{goal.status}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="role-form" ng-show="editable">
+    <div class="form-group">
+        <input class="form-control" ng-model="role.name">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" ng-model="role.statement" rows="5"></textarea>
+    </div>
+    <div>
+        <a class="btn btn-success" ng-click="saveRole()" translate>button.save</a>
+    </div>
+</div>

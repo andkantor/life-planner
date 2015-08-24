@@ -1,0 +1,36 @@
+<div class="goal-view">
+    <h2>{{goal.name}}</h2>
+
+    <div>
+
+        <div class="pull-left goal-view-left">
+            <img src="{{goal.image}}" width="300" height="300">
+        </div>
+
+        <div class="pull-left goal-view-right">
+            <div class="">
+                {{'goal.description'|translate}}: {{goal.description}}
+            </div>
+            <div class="">
+                {{'goal.priority'|translate}}: {{goal.priority}}
+            </div>
+            <div class="">
+                {{'goal.status.status'|translate}}: {{goal.status}}
+            </div>
+            <div class="">
+                {{'goal.date'|translate}}: {{goal.date|date}}
+            </div>
+            <div class="">
+                {{'goal.tags'|translate}}: {{goal.tags.join(', ')}}
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <lp-activity-table
+                title="{{'activity.list.title'|translate}}"
+                goal="goal"
+                enable-add="true"></lp-activity-table>
+
+    </div>
+</div>
