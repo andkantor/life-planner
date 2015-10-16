@@ -8,6 +8,10 @@
  * Controller of the lifePlannerApp
  */
 angular.module('lifePlannerApp')
-    .controller('GoalListCtrl', function ($scope, GoalList) {
+    .controller('GoalListCtrl', function ($scope, GoalList, GoalConfig) {
         $scope.goals = GoalList.all();
+
+        $scope.isActive = function (goal) {
+            return goal.status !== GoalConfig.statuses.done;
+        };
     });
