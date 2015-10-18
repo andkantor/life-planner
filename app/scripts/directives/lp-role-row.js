@@ -17,12 +17,9 @@ angular.module('lifePlannerApp')
             link: function ($scope) {
                 $scope.editable = false;
                 $scope.showGoals = false;
-                $scope.goals = GoalList.all();
-                //TODO leszûrni õket
-
-                $scope.hasRole = function (goal) {
+                $scope.goals = _.filter(GoalList.all(), function (goal) {
                     return goal.hasRole($scope.role);
-                };
+                });
 
                 $scope.showForm = function () {
                     $scope.editable = true;

@@ -13,7 +13,8 @@ angular.module('lifePlannerApp')
             restrict: 'E',
             scope: {
                 goals: '=',
-                noGoalsText: '@'
+                noGoalsText: '@',
+                enableAdd: '=?'
             },
             link: function ($scope) {
                 $scope.viewGoal = function (goal) {
