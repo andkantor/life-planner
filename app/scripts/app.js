@@ -21,6 +21,10 @@ angular
     ])
     .config(function ($routeProvider, $translateProvider) {
         $routeProvider
+            .when('/login', {
+                templateUrl: 'views/login.html',
+                controller: 'LoginCtrl'
+            })
             .when('/', {
                 templateUrl: 'views/home.html',
                 controller: 'HomeCtrl'
@@ -46,6 +50,18 @@ angular
             });
 
         $translateProvider.translations('en_EN', {
+            login: {
+                title: 'Please sign in',
+                username: 'Username',
+                password: 'Password',
+                login: 'Login',
+                success: 'You have logged in successfully.',
+                error: {
+                    username: 'Username cannot be empty!',
+                    password: 'Password cannot be empty!',
+                    invalidPassword: 'Invalid password!'
+                }
+            },
             menu: {
                 title: 'Life Planner',
                 home: 'Home',
@@ -106,7 +122,8 @@ angular
             activity: {
                 list: {
                     title: 'Activities',
-                    noActivities: 'There are no activities yet.'
+                    noActivities: 'There are no activities yet.',
+                    saveSuccessText: 'You have successfully saved the activity!'
                 },
                 modal: {
                     title: 'Add new activity'
@@ -118,6 +135,15 @@ angular
                     done: 'Done'
                 },
                 date: 'Date to perform'
+            }
+        });
+    })
+    .run(function($rootScope, $location, User) {
+        $rootScope.$on( "$routeChangeStart", function(event, next) {
+            if (!User.isLogged()) {
+                if (next.loadedTemplateUrl !== "views/login.html") {
+                    $location.path("/login");
+                }
             }
         });
     });

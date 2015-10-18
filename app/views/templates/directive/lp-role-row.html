@@ -28,13 +28,9 @@
     </div>
     <div>{{role.statement}}</div>
     <div ng-show="showGoals">
-        <table class="table table-hover">
-            <tr ng-repeat="goal in goals">
-                <td>{{goal.name}}</td>
-                <td>{{goal.priority}}</td>
-                <td>{{goal.status}}</td>
-            </tr>
-        </table>
+        <lp-goal-table
+                goals="goals"
+                no-goals-text="{{'goal.list.noGoals'|translate}}"></lp-goal-table>
     </div>
 </div>
 

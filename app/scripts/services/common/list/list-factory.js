@@ -8,9 +8,15 @@
  * Service in the lifePlannerApp.
  */
 angular.module('lifePlannerApp')
-    .factory('ListFactory', function (Storage) {
+    .factory('ListFactory', function (UserAwareStorage) {
         var List = function (storageKey) {
-            var list = Storage.get(storageKey, { elements: [], nextId: 1 });
+            var list;
+
+            this.load = function () {
+                list = UserAwareStorage.get(storageKey, { elements: [], nextId: 1 });
+            };
+
+            this.load();
 
             this.get = function (id) {
                 id = parseInt(id);
@@ -24,7 +30,7 @@ angular.module('lifePlannerApp')
                     return e.id === element.id;
                 });
 
-                Storage.set(storageKey, list);
+                UserAwareStorage.set(storageKey, list);
             };
 
             this.save = function (element) {
@@ -33,7 +39,7 @@ angular.module('lifePlannerApp')
                     list.elements.push(element);
                 }
 
-                Storage.set(storageKey, list);
+                UserAwareStorage.set(storageKey, list);
             };
 
             this.all = function () {

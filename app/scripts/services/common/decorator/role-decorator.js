@@ -9,7 +9,6 @@
  */
 angular.module('lifePlannerApp')
     .factory('RoleDecorator', function (RoleList, GoalList) {
-        // TODO nem decorator, átnevezni
 
         var goal;
         var roleModel = {
@@ -64,7 +63,6 @@ angular.module('lifePlannerApp')
 
                 return skeleton;
             };
-
         };
 
         return {

@@ -9,7 +9,6 @@
  */
 angular.module('lifePlannerApp')
     .factory('GoalDecorator', function (GoalList, RoleList, ActivityList) {
-        // TODO nem decorator, átnevezni
 
         var role;
         var activity;
@@ -55,7 +54,7 @@ angular.module('lifePlannerApp')
                 _.each(self.activities, function (activityId) {
                     activity = ActivityList.get(activityId);
                     activity.setGoal(self);
-                    ActivityList.save(role);
+                    ActivityList.save(activity);
                 });
             },
             remove: function () {

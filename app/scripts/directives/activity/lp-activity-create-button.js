@@ -35,7 +35,7 @@ angular.module('lifePlannerApp')
                     $scope.activity.save();
                     addActivityModal.hide();
 
-                    Notifier.success('goal.list.saveSuccessText');
+                    Notifier.success('activity.list.saveSuccessText');
 
                     $scope.activity = ActivityList.createSkeleton();
                 };

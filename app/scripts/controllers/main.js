@@ -8,10 +8,8 @@
  * Controller of the lifePlannerApp
  */
 angular.module('lifePlannerApp')
-    .controller('MainCtrl', function ($scope, $translate, $location, GoalDecorator, RoleDecorator, ActivityDecorator) {
+    .controller('MainCtrl', function ($scope, $translate, User) {
         $translate.use('en_EN');
 
-        GoalDecorator.decorate();
-        RoleDecorator.decorate();
-        ActivityDecorator.decorate();
+        $scope.user = User;
     });

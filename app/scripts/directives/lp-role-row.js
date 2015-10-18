@@ -7,7 +7,7 @@
  * # lpRoleRow
  */
 angular.module('lifePlannerApp')
-    .directive('lpRoleRow', function (RoleList, GoalList) {
+    .directive('lpRoleRow', function ($filter, RoleList, GoalList) {
         return {
             templateUrl: 'views/templates/directive/lp-role-row.html',
             restrict: 'E',
@@ -17,10 +17,12 @@ angular.module('lifePlannerApp')
             link: function ($scope) {
                 $scope.editable = false;
                 $scope.showGoals = false;
-                $scope.goals = [];
-                _.each($scope.role.goals, function (goalId) {
-                    $scope.goals.push(GoalList.get(goalId));
-                });
+                $scope.goals = GoalList.all();
+                //TODO leszûrni õket
+
+                $scope.hasRole = function (goal) {
+                    return goal.hasRole($scope.role);
+                };
 
                 $scope.showForm = function () {
                     $scope.editable = true;

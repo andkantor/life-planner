@@ -20,7 +20,7 @@
                 </tr>
                 <tr ng-repeat="goal in goals | orderBy:'priority' track by $index">
                     <td class="col-xs-1">{{goal.id}}</td>
-                    <td class="col-xs-7" ng-click="viewGoal(goal)">{{goal.name}}</td>
+                    <td class="col-xs-7" role="button" ng-click="viewGoal(goal)">{{goal.name}}</td>
                     <td class="col-xs-1">
                         <lp-goal-priority-dropdown goal="goal"></lp-goal-priority-dropdown>
                     </td>
