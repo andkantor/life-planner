@@ -7,6 +7,7 @@
                 <th translate>goal.name</th>
                 <th translate>goal.priority</th>
                 <th translate>goal.status.status</th>
+                <th translate>goal.date</th>
                 <th>
                     <div class="btn-group" role="group">
                         <lp-goal-create-button goals="goals" ng-if="enableAdd"></lp-goal-create-button>
@@ -18,14 +19,17 @@
                 <tr ng-if="!goals.length" class="text-center">
                     <td colspan="5" translate>{{noGoalsText}}</td>
                 </tr>
-                <tr ng-repeat="goal in goals | orderBy:'priority' track by $index">
+                <tr ng-repeat="goal in goals | orderBy:'date' track by $index">
                     <td class="col-xs-1">{{goal.id}}</td>
-                    <td class="col-xs-7" role="button" ng-click="viewGoal(goal)">{{goal.name}}</td>
+                    <td class="col-xs-4" role="button" ng-click="viewGoal(goal)">{{goal.name}}</td>
                     <td class="col-xs-1">
                         <lp-goal-priority-dropdown goal="goal"></lp-goal-priority-dropdown>
                     </td>
                     <td class="col-xs-3">
                         <lp-goal-status-dropdown goal="goal"></lp-goal-status-dropdown>
+                    </td>
+                    <td class="col-xs-3">
+                        {{goal.date|date}}
                     </td>
                     <td class="col-xs-1">
                         <div class="btn-group pull-right" role="group">

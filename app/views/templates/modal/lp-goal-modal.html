@@ -10,32 +10,34 @@
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label for="goal-name" translate>goal.name</label>
+                        <!--<label for="goal-name" translate>goal.name</label>-->
                         <input type="text"
                                class="form-control"
                                id="goal-name"
                                ng-model="goal.name"
+                               placeholder="{{'goal.name'|translate}}"
                                required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="goal-description" translate>goal.description</label>
-                        <textarea
-                               class="form-control"
-                               id="goal-description"
-                               rows="3"
-                               ng-model="goal.description"
-                               required>
-                            </textarea>
-                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<label for="goal-description" translate>goal.description</label>-->
+                        <!--<textarea-->
+                               <!--class="form-control"-->
+                               <!--id="goal-description"-->
+                               <!--rows="3"-->
+                               <!--ng-model="goal.description"-->
+                               <!--required>-->
+                            <!--</textarea>-->
+                    <!--</div>-->
 
                     <div class="form-group">
-                        <label for="goal-image" translate>goal.imageUrl</label>
+                        <!--<label for="goal-image" translate>goal.imageUrl</label>-->
                         <input
                                 type="url"
                                 class="form-control"
                                 id="goal-image"
-                                ng-model="goal.image">
+                                ng-model="goal.image"
+                                placeholder="{{'goal.imageUrl'|translate}}">
                     </div>
 
                     <div class="form-group">
@@ -49,16 +51,16 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div><label translate>goal.tags</label></div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default"
-                                    ng-repeat="tag in goalConfig.tags track by $index"
-                                    ng-class="{active: hasTag(tag) }"
-                                    ng-click="toggleTag(tag)">{{tag}}
-                            </button>
-                        </div>
-                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<div><label translate>goal.tags</label></div>-->
+                        <!--<div class="btn-group" role="group">-->
+                            <!--<button type="button" class="btn btn-default"-->
+                                    <!--ng-repeat="tag in goalConfig.tags track by $index"-->
+                                    <!--ng-class="{active: hasTag(tag) }"-->
+                                    <!--ng-click="toggleTag(tag)">{{tag}}-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
                     <div class="form-group">
                         <div><label translate>goal.roles</label></div>
@@ -92,6 +94,14 @@
                                 id="goal-date"
                                 ng-model="goal.date"
                                 required>
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                                type="checkbox"
+                                id="also-create-activity"
+                                ng-model="alsoCreateActivity">
+                        <label for="also-create-activity" translate>goal.modal.alsoCreateActivity</label>
                     </div>
 
                 </div>

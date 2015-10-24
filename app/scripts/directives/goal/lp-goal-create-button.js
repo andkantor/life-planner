@@ -7,7 +7,7 @@
  * # lpGoalCreateButton
  */
 angular.module('lifePlannerApp')
-    .directive('lpGoalCreateButton', function ($modal, GoalConfig, Notifier, GoalList, RoleList) {
+    .directive('lpGoalCreateButton', function ($modal, GoalConfig, Notifier, GoalList, RoleList, ActivityList) {
         return {
             templateUrl: 'views/templates/directive/goal/lp-goal-create-button.html',
             restrict: 'E',
@@ -17,6 +17,7 @@ angular.module('lifePlannerApp')
             },
             link: function ($scope) {
                 $scope.roles = RoleList.all();
+                $scope.alsoCreateActivity = true;
 
                 // Modal config
                 var addGoalModal = $modal({
@@ -55,6 +56,16 @@ angular.module('lifePlannerApp')
 
                 $scope.saveGoal = function () {
                     $scope.goal.save();
+
+                    if ($scope.alsoCreateActivity) {
+                        var activity = ActivityList.createSkeleton();
+
+                        activity.setGoal($scope.goal);
+                        activity.title = $scope.goal.name;
+                        activity.date = $scope.goal.date;
+
+                        activity.save();
+                    }
 
                     addGoalModal.hide();
 

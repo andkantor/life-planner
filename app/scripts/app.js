@@ -54,8 +54,8 @@ angular
                 title: 'Please sign in',
                 username: 'Username',
                 password: 'Password',
-                login: 'Login',
-                success: 'You have logged in successfully.',
+                login: 'Sign in',
+                success: 'You have signed in successfully.',
                 error: {
                     username: 'Username cannot be empty!',
                     password: 'Password cannot be empty!',
@@ -106,6 +106,9 @@ angular
                     modalTitle: 'Create new goal',
                     saveSuccessText: 'You have successfully saved the goal!'
                 },
+                modal: {
+                    alsoCreateActivity: 'Also create activity.'
+                },
                 name: 'Name',
                 description: 'Description',
                 imageUrl: 'Image Url',
@@ -116,6 +119,7 @@ angular
                     inProgress: 'In Progress',
                     done: 'Done'
                 },
+                roles: 'Roles',
                 tags: 'Tags',
                 date: 'Date to achieve'
             },
