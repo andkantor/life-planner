@@ -7,7 +7,7 @@
  * # lpGoalTable
  */
 angular.module('lifePlannerApp')
-    .directive('lpGoalTable', function ($location) {
+    .directive('lpGoalTable', function ($location, GoalList) {
         return {
             templateUrl: 'views/templates/directive/goal/lp-goal-table.html',
             restrict: 'E',
