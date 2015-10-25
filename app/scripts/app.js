@@ -77,11 +77,11 @@ angular
                 delete: 'Delete'
             },
             home: {
-                activitiesThisWeek: {
-                    title: 'Activities this week'
-                },
-                activitiesThisMonth: {
-                    title: 'Activities this month'
+                activities: {
+                    prevWeek: 'Activities previous week',
+                    thisWeek: 'Activities this week',
+                    nextWeek: 'Activities next week',
+                    afterNextWeek: 'Activities after next week'
                 }
             },
             mission: {

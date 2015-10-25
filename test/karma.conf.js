@@ -37,6 +37,8 @@ module.exports = function(config) {
       'bower_components/lodash/lodash.js',
       'bower_components/remarkable-bootstrap-notify/bootstrap-notify.js',
       'bower_components/cryptojslib/rollups/aes.js',
+      'bower_components/moment/moment.js',
+      'bower_components/angular-moment/angular-moment.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

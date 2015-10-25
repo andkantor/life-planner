@@ -9,18 +9,13 @@
  */
 angular.module('lifePlannerApp')
     .controller('HomeCtrl', function ($scope, DateHelper) {
-        var curr = new Date(),
-            date;
-        var firstDay = DateHelper.firstDayOfWeek(curr);
-        var lastDay = DateHelper.lastDayOfWeek(curr);
+        $scope.prevWeek = DateHelper.getWeek(DateHelper.getDate(-7));
+        $scope.thisWeek = DateHelper.getWeek(DateHelper.getDate());
+        $scope.nextWeek = DateHelper.getWeek(DateHelper.getDate(7));
+        $scope.afterNextWeek = DateHelper.getWeek(DateHelper.getDate(14));
 
-        $scope.isThisWeek = function (activity) {
-            date = DateHelper.format(activity.date);
-            return date >= firstDay && date <= lastDay;
-        };
-
-        $scope.isThisMonth = function (activity) {
-            return curr.getFullYear() === activity.date.getFullYear() &&
-                curr.getMonth() === activity.date.getMonth();
-        };
+        //$scope.isThisMonth = function (activity) {
+        //    return curr.getFullYear() === activity.date.getFullYear() &&
+        //        curr.getMonth() === activity.date.getMonth();
+        //};
     });
