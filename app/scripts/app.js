@@ -37,13 +37,13 @@ angular
                 templateUrl: 'views/goal-list.html',
                 controller: 'GoalListCtrl'
             })
+            .when('/goal/create', {
+                templateUrl: 'views/goal-create.html',
+                controller: 'GoalCreateCtrl'
+            })
             .when('/goal/:id', {
                 templateUrl: 'views/goal-view.html',
                 controller: 'GoalViewCtrl'
-            })
-            .when('/activities', {
-                templateUrl: 'views/activity-list.html',
-                controller: 'ActivityListCtrl'
             })
             .otherwise({
                 redirectTo: '/'
@@ -125,7 +125,6 @@ angular
             },
             activity: {
                 list: {
-                    title: 'Activities',
                     noActivities: 'There are no activities yet.',
                     saveSuccessText: 'You have successfully saved the activity!'
                 },

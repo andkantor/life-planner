@@ -1,0 +1,89 @@
+<div>
+    <form role="form" id="add-goal" name="goalForm">
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label for="goal-name" translate>goal.name</label>
+                <input type="text"
+                       class="form-control"
+                       id="goal-name"
+                       ng-model="goal.name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="goal-image" translate>goal.imageUrl</label>
+                <input
+                        type="url"
+                        class="form-control"
+                        id="goal-image"
+                        ng-model="goal.image">
+            </div>
+
+            <div class="form-group">
+                <div><label translate>goal.priority</label></div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default"
+                            ng-repeat="priority in goalConfig.priorities track by $index"
+                            ng-class="{active: goal.priority == priority }"
+                            ng-click="selectPriority(priority)">{{priority}}
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div><label translate>goal.roles</label></div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default"
+                            ng-repeat="role in roles track by $index"
+                            ng-class="{active: goal.hasRole(role) }"
+                            ng-click="toggleRole(role)">{{role.name}}
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="goal-status" translate>goal.status.status</label>
+                <select
+                        class="form-control"
+                        id="goal-status"
+                        ng-model="goal.status"
+                        required>
+                    <option ng-selected="true" value="{{goalConfig.statuses.new}}" translate>goal.status.new</option>
+                    <option value="{{goalConfig.statuses.inProgress}}" translate>goal.status.inProgress</option>
+                    <option value="{{goalConfig.statuses.done}}" translate>goal.status.done</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="goal-date" translate>goal.date</label>
+                <input
+                        type="date"
+                        class="form-control"
+                        id="goal-date"
+                        ng-model="goal.date"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <input
+                        type="checkbox"
+                        id="also-create-activity"
+                        ng-model="alsoCreateActivity">
+                <label for="also-create-activity" translate>goal.modal.alsoCreateActivity</label>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="submit"
+                    class="btn btn-success"
+                    ng-click="saveGoal()"
+                    ng-disabled="!goalForm.$valid" translate>button.save
+            </button>
+            <button type="button"
+                    class="btn btn-danger"
+                    ng-click="$hide()" translate>button.cancel
+            </button>
+        </div>
+    </form>
+</div>

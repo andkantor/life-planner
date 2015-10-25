@@ -10,7 +10,12 @@
                 <th translate>goal.date</th>
                 <th>
                     <div class="btn-group" role="group">
-                        <lp-goal-create-button goals="goals" ng-if="enableAdd"></lp-goal-create-button>
+                        <a role="button"
+                           class="btn btn-sm btn-success"
+                           ng-if="enableAdd"
+                           ng-href="#/goal/create">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
                     </div>
                 </th>
             </tr>
