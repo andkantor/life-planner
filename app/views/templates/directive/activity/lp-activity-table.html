@@ -32,6 +32,20 @@
                 <td class="col-xs-2">{{activity.date|date:'mediumDate'}}</td>
                 <td class="col-xs-2">
                     <div class="btn-group pull-right" role="group">
+                        <div class="pull-left dropdown">
+                            <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="(action, title) in bringForwardActions track by $index">
+                                    <a role="button" ng-click="reschedule(activity, action)">{{title}}</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li ng-repeat="(action, title) in postponeActions track by $index">
+                                    <a role="button" ng-click="reschedule(activity, action)">{{title}}</a>
+                                </li>
+                            </ul>
+                        </div>
                         <a class="btn btn-sm btn-default"
                            role="button"
                            ng-class="{'btn-success': activity.status == 'done'}"

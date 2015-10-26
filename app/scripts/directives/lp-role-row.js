@@ -7,7 +7,7 @@
  * # lpRoleRow
  */
 angular.module('lifePlannerApp')
-    .directive('lpRoleRow', function ($filter, RoleList, GoalList) {
+    .directive('lpRoleRow', function ($filter, GoalList) {
         return {
             templateUrl: 'views/templates/directive/lp-role-row.html',
             restrict: 'E',
@@ -27,11 +27,11 @@ angular.module('lifePlannerApp')
 
                 $scope.saveRole = function () {
                     $scope.editable = false;
-                    RoleList.save($scope.role);
+                    $scope.role.save();
                 };
 
                 $scope.removeRole = function () {
-                    RoleList.remove($scope.role);
+                    $scope.role.remove();
                 };
             }
         };

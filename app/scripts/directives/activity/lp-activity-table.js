@@ -7,7 +7,7 @@
  * # lpActivityTable
  */
 angular.module('lifePlannerApp')
-    .directive('lpActivityTable', function (ActivityList) {
+    .directive('lpActivityTable', function ($translate, ActivityList, Scheduler, DateHelper) {
         return {
             templateUrl: 'views/templates/directive/activity/lp-activity-table.html',
             restrict: 'E',
@@ -28,6 +28,25 @@ angular.module('lifePlannerApp')
 
                 $scope.showChecked = true;
                 $scope.showUnchecked = true;
+
+                $scope.bringForwardActions = {};
+                _.each(Scheduler.BRING_FORWARD_ACTIONS, function (action) {
+                    $scope.bringForwardActions[action] = $translate.instant('schedule.reschedule.' + action);
+                });
+
+                $scope.postponeActions = {};
+                _.each(Scheduler.POSTPONE_ACTIONS, function (action) {
+                    $scope.postponeActions[action] = $translate.instant('schedule.reschedule.' + action);
+                });
+
+                $scope.reschedule = function (activity, action) {
+                    Scheduler.reschedule(activity, action);
+
+                    if (DateHelper.compare(activity.date, activity.getGoal().date) === 1) {
+                        activity.getGoal().date = new Date(DateHelper.format(activity.date));
+                        activity.getGoal().save();
+                    }
+                };
 
                 $scope.showActivity = function (activity) {
                     return (activity.status === 'done' && $scope.showChecked) ||

@@ -138,6 +138,16 @@ angular
                     done: 'Done'
                 },
                 date: 'Date to perform'
+            },
+            schedule: {
+                reschedule: {
+                    bringForwardOneDay: 'Bring forward by a day',
+                    bringForwardOneWeek: 'Bring forward by a week',
+                    bringForwardOneMonth: 'Bring forward by a month',
+                    postponeOneDay: 'Postpone by a day',
+                    postponeOneWeek: 'Postpone by a week',
+                    postponeOneMonth: 'Postpone by a month'
+                }
             }
         });
     })

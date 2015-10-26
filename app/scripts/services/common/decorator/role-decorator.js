@@ -26,22 +26,26 @@ angular.module('lifePlannerApp')
                 });
             },
             save: function () {
-                RoleList.save(this);
+                var self = this;
 
-                _.each(this.goals, function (goalId) {
+                RoleList.save(self);
+
+                _.each(self.goals, function (goalId) {
                     goal = GoalList.get(goalId);
-                    goal.addRole(this);
+                    goal.addRole(self);
                     GoalList.save(goal);
                 });
             },
             remove: function () {
-                _.each(this.goals, function (goalId) {
+                var self = this;
+
+                _.each(self.goals, function (goalId) {
                     goal = GoalList.get(goalId);
-                    goal.removeRole(this);
+                    goal.removeRole(self);
                     GoalList.save(goal);
                 });
 
-                RoleList.remove(this);
+                RoleList.remove(self);
             }
         };
 

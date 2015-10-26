@@ -15,11 +15,23 @@ angular.module('lifePlannerApp')
                 return date.toISOString().slice(0, 10);
             },
 
+            compare: function (dateA, dateB) {
+                dateA = DateHelper.format(dateA);
+                dateB = DateHelper.format(dateB);
+
+                if (dateA > dateB) {
+                    return 1;
+                } else if (dateA === dateB) {
+                    return 0;
+                }
+
+                return -1;
+            },
+
             getFirstDayOfWeek: function (date) {
                 var day = date.getDay();
                 var first = date.getDate() - day + (day === 0 ? -6 : 1);
                 date.setDate(first);
-                console.log(date);
 
                 return DateHelper.format(date);
             },
@@ -63,6 +75,7 @@ angular.module('lifePlannerApp')
 
         return {
             format: DateHelper.format,
+            compare: DateHelper.compare,
             getDate: DateHelper.getDate,
             getWeek: DateHelper.getWeek
         };
