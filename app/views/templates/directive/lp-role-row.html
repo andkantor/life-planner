@@ -27,9 +27,9 @@
         <div class="clearfix"></div>
     </div>
     <div>{{role.statement}}</div>
-    <div ng-show="showGoals">
+    <div ng-if="showGoals">
         <lp-goal-table
-                goals="goals"
+                condition="hasGoal"
                 no-goals-text="{{'goal.list.noGoals'|translate}}"
                 enable-add="false"></lp-goal-table>
     </div>

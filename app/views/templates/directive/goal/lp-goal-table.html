@@ -24,7 +24,8 @@
                 <tr ng-if="!goals.length" class="text-center">
                     <td colspan="5" translate>{{noGoalsText}}</td>
                 </tr>
-                <tr ng-repeat="goal in goals | orderBy:'date' track by goal.id">
+                <tr ng-repeat="goal in goals | orderBy:'date' track by goal.id"
+                    ng-if="condition(goal)">
                     <td class="col-xs-1">{{goal.id}}</td>
                     <td class="col-xs-5" role="button" ng-click="viewGoal(goal)">{{goal.name}}</td>
                     <td class="col-xs-1">

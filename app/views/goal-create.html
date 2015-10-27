@@ -80,10 +80,11 @@
                     ng-click="saveGoal()"
                     ng-disabled="!goalForm.$valid" translate>button.save
             </button>
-            <button type="button"
-                    class="btn btn-danger"
-                    ng-click="$hide()" translate>button.cancel
-            </button>
+            <a
+                role="button"
+                class="btn btn-danger"
+                ng-href="#/goals" translate>button.cancel
+            </a>
         </div>
     </form>
 </div>

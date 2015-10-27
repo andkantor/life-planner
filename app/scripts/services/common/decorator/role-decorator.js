@@ -14,6 +14,7 @@ angular.module('lifePlannerApp')
         var roleModel = {
             addGoal: function (goal) {
                 if (!this.hasGoal(goal)) {
+                    console.log(this.goals);
                     this.goals.push(goal.id);
                 }
             },
