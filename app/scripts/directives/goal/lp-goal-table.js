@@ -7,7 +7,7 @@
  * # lpGoalTable
  */
 angular.module('lifePlannerApp')
-    .directive('lpGoalTable', function ($location) {
+    .directive('lpGoalTable', function ($location, $translate, GoalConfig) {
         return {
             templateUrl: 'views/templates/directive/goal/lp-goal-table.html',
             restrict: 'E',
@@ -17,6 +17,11 @@ angular.module('lifePlannerApp')
                 enableAdd: '=?'
             },
             link: function ($scope) {
+                $scope.statuses = {};
+                _.each(GoalConfig.statuses, function (status) {
+                    $scope.statuses[status] = $translate.instant('goal.status.' + status);
+                });
+
                 $scope.viewGoal = function (goal) {
                     $location.path('/goal/' + goal.id);
                 };

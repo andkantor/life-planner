@@ -26,12 +26,12 @@
                 </tr>
                 <tr ng-repeat="goal in goals | orderBy:'date' track by goal.id">
                     <td class="col-xs-1">{{goal.id}}</td>
-                    <td class="col-xs-4" role="button" ng-click="viewGoal(goal)">{{goal.name}}</td>
+                    <td class="col-xs-5" role="button" ng-click="viewGoal(goal)">{{goal.name}}</td>
                     <td class="col-xs-1">
                         {{goal.priority}}
                     </td>
-                    <td class="col-xs-3">
-                        {{goal.status}}
+                    <td class="col-xs-2">
+                        {{statuses[goal.status]}}
                     </td>
                     <td class="col-xs-3">
                         {{goal.date|date}}

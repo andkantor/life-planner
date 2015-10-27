@@ -106,7 +106,7 @@ angular
                     modalTitle: 'Create new goal',
                     saveSuccessText: 'You have successfully saved the goal!'
                 },
-                modal: {
+                create: {
                     alsoCreateActivity: 'Also create activity.'
                 },
                 name: 'Name',
@@ -125,6 +125,7 @@ angular
             },
             activity: {
                 list: {
+                    title: 'Activities',
                     noActivities: 'There are no activities yet.',
                     saveSuccessText: 'You have successfully saved the activity!'
                 },

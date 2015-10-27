@@ -26,9 +26,6 @@ angular.module('lifePlannerApp')
                     };
                 }
 
-                $scope.showChecked = true;
-                $scope.showUnchecked = true;
-
                 $scope.bringForwardActions = {};
                 _.each(Scheduler.BRING_FORWARD_ACTIONS, function (action) {
                     $scope.bringForwardActions[action] = $translate.instant('schedule.reschedule.' + action);
@@ -46,11 +43,6 @@ angular.module('lifePlannerApp')
                         activity.getGoal().date = new Date(DateHelper.format(activity.date));
                         activity.getGoal().save();
                     }
-                };
-
-                $scope.showActivity = function (activity) {
-                    return (activity.status === 'done' && $scope.showChecked) ||
-                        (activity.status === 'new' && $scope.showUnchecked);
                 };
 
                 $scope.changeActivityStatus = function (activity) {
