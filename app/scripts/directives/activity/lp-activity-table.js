@@ -38,6 +38,7 @@ angular.module('lifePlannerApp')
 
                 $scope.reschedule = function (activity, action) {
                     Scheduler.reschedule(activity, action);
+                    activity.save();
 
                     if (DateHelper.compare(activity.date, activity.getGoal().date) === 1) {
                         activity.getGoal().date = new Date(DateHelper.format(activity.date));

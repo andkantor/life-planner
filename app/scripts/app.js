@@ -78,7 +78,7 @@ angular
             },
             home: {
                 activities: {
-                    prevWeek: 'Activities previous week',
+                    notDone: 'Not done activities',
                     thisWeek: 'Activities this week',
                     nextWeek: 'Activities next week',
                     afterNextWeek: 'Activities after next week'

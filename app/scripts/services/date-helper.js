@@ -63,6 +63,9 @@ angular.module('lifePlannerApp')
         };
 
         var Week = function (firstDay, lastDay) {
+            this.firstDay = firstDay;
+            this.lastDay = lastDay;
+
             this.toString = function () {
                 return firstDay + ' - ' + lastDay;
             };
